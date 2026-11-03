@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1E6B9B" />
+    <title>Centro de ayuda · BuhoManager</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.16"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body class="antialiased">
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <header class="header">
+      <div class="wrap header-inner">
+        <a
+          class="brand"
+          href="https://buhomanager.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="BuhoManager, sitio principal"
+        >
+          <svg class="owl" viewBox="0 0 48 48" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M6 7 17 14a18 18 0 0 1 14 0L42 7l-4 16c0 12-6 19-14 19S10 35 10 23Z"
+            />
+            <path fill="#fff" d="M24 22c-8-12-20 3-7 10 4 2 7 3 7 3s3-1 7-3c13-7 1-22-7-10Z" />
+            <ellipse
+              fill="#0D4C73"
+              cx="18.5"
+              cy="25.5"
+              rx="2.7"
+              ry="4"
+              transform="rotate(-20 18.5 25.5)"
+            />
+            <ellipse
+              fill="#0D4C73"
+              cx="29.5"
+              cy="25.5"
+              rx="2.7"
+              ry="4"
+              transform="rotate(20 29.5 25.5)"
+            />
+            <path fill="#F59E0B" d="m21.5 31 2.5 4 2.5-4Z" />
+          </svg>
+          <div>
+            <div class="wordmark">Buho<span>Manager</span></div>
+            <small>CENTRO DE AYUDA</small>
+          </div>
+        </a>
+        <nav class="environment" aria-label="Entorno de ayuda">
+          <button id="posSwitch" type="button" aria-pressed="true" data-env="pos">
+            <span data-icon="monitor"></span
+            ><span><strong>Ayuda Caja POS</strong><small>Escritorio</small></span>
+          </button>
+          <button id="webSwitch" type="button" aria-pressed="false" data-env="web">
+            <span data-icon="cloud"></span
+            ><span><strong>Ayuda Sistema Web</strong><small>Plan Nube</small></span>
+          </button>
+        </nav>
+        <a class="external" href="https://buhomanager.com" target="_blank" rel="noopener noreferrer"
+          >Ir a BuhoManager <span data-icon="external"></span
+        ></a>
+      </div>
+    </header>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="wrap hero-inner">
+        <div class="overline">
+          <span class="dot"></span> Un comercio en marcha. Una ayuda a mano.
+        </div>
+        <h1 id="heroTitle">Menos dudas.<br /><span>Más tiempo para tu comercio.</span></h1>
+        <p class="hero-description" id="heroDescription">
+          Aprendé a usar tu Caja con videos cortos y respuestas simples.<br />Buscá lo que necesitás
+          y seguí con tu día.
+        </p>
+        <div class="search-area" role="search" aria-label="Buscar ayuda">
+          <div class="search-box">
+            <span data-icon="search"></span>
+            <label for="search" class="sr-only">¿Qué necesitás resolver hoy?</label>
+            <input
+              id="search"
+              type="search"
+              placeholder="¿Qué necesitás resolver hoy?"
+              autocomplete="off"
+              spellcheck="false"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-expanded="false"
+              aria-controls="suggestions"
+            />
+            <button
+              class="clear-search"
+              id="clearSearch"
+              type="button"
+              aria-label="Limpiar búsqueda"
+              hidden
+            >
+              <span data-icon="x"></span>
+            </button>
+            <kbd class="key" id="searchKey" aria-hidden="true">/</kbd>
+          </div>
+          <div
+            id="suggestions"
+            class="suggestions"
+            role="listbox"
+            aria-label="Sugerencias de ayuda"
+            hidden
+          ></div>
+        </div>
+        <div class="quick-search" id="quickSearch" aria-label="Búsquedas frecuentes"></div>
+      </div>
+    </section>
+    <main id="contenido" class="wrap main" tabindex="-1">
+      <div id="searchSummary" class="search-summary" hidden>
+        <span id="resultCount" role="status" aria-live="polite"></span
+        ><button class="text-button" data-action="reset">
+          Ver todo <span data-icon="x"></span>
+        </button>
+      </div>
+      <section id="posSection" aria-labelledby="posTitle">
+        <div class="section-top" id="posHeading">
+          <div>
+            <div class="eyebrow">Un buen comienzo</div>
+            <h2 id="posTitle">Tu próxima venta, con confianza.</h2>
+            <p>Conocé los botones. Probá los atajos. Hacelo a tu ritmo.</p>
+          </div>
+          <span class="section-label"
+            ><span data-icon="play"></span> Cortitos, claros y al punto</span
+          >
+        </div>
+        <div class="learning" id="learningRoute">
+          <div class="row">
+            <div class="learning-icon"><span data-icon="route"></span></div>
+            <div>
+              <h3>Domina la Caja en 4 pasos</h3>
+              <small
+                >Ruta recomendada <span aria-hidden="true">·</span> 4 videos
+                <span aria-hidden="true">·</span> menos de 4 minutos</small
+              >
+            </div>
+          </div>
+          <div class="progress-area">
+            <div class="progress-caption">
+              <span id="progressLabel">Tu progreso</span><strong id="progressCount">0 de 4</strong>
+            </div>
+            <div
+              class="progress-track"
+              id="courseProgress"
+              role="progressbar"
+              aria-label="Videos completados"
+              aria-valuemin="0"
+              aria-valuemax="4"
+              aria-valuenow="0"
+            >
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+          <button class="primary" id="startRoute">
+            Comenzar la ruta <span data-icon="arrow"></span>
+          </button>
+        </div>
+        <div class="video-grid grid grid-cols-2 lg:grid-cols-4" id="videoGrid"></div>
+        <section class="shortcuts-section" id="shortcutsSection" aria-labelledby="shortcutsTitle">
+          <div class="row between">
+            <h2 class="small-heading" id="shortcutsTitle">Directo a lo que necesitás</h2>
+            <span class="section-label">Tu ayuda de todos los días</span>
+          </div>
+          <div class="shortcut-grid grid grid-cols-2 lg:grid-cols-4" id="shortcutGrid"></div>
+        </section>
+        <div class="switch-banner" id="webBanner">
+          <div class="row">
+            <span class="tile-icon" data-icon="cloud"></span>
+            <div>
+              <strong>¿La gestión de tu comercio está en la nube?</strong>
+              <p>Artículos, stock, clientes y más. Cada módulo tiene su lugar.</p>
+            </div>
+          </div>
+          <button class="text-button" data-env="web">
+            Explorar Sistema Web <span data-icon="arrow"></span>
+          </button>
+        </div>
+      </section>
+      <section id="webSection" aria-labelledby="webTitle" hidden>
+        <div class="section-top">
+          <div>
+            <div class="eyebrow">Todo conectado</div>
+            <h2 id="webTitle">Una ayuda para cada parte de tu negocio.</h2>
+            <p>Elegí un módulo y encontrá por dónde empezar.</p>
+          </div>
+          <span class="pill blue">12 colecciones · Plan Nube</span>
+        </div>
+        <div class="web-grid grid sm:grid-cols-2 lg:grid-cols-3" id="moduleGrid"></div>
+      </section>
+      <section class="empty" id="emptyState" hidden>
+        <span data-icon="search"></span>
+        <h2>Probemos con otras palabras.</h2>
+        <p>No encontramos coincidencias. Buscá una tarea, un botón o un módulo.</p>
+        <button class="secondary" data-action="reset">Limpiar búsqueda</button>
+      </section>
+      <noscript
+        ><p class="warning">
+          Activá JavaScript para usar la búsqueda, ver las guías y cambiar de entorno.
+        </p></noscript
+      >
+    </main>
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <div class="brand">
+          <span data-icon="heart"></span><strong>BuhoManager</strong
+          ><span>· Estamos para ayudarte.</span>
+        </div>
+        <span>Simple para aprender.<br />Útil para todos los días.</span>
+      </div>
+    </footer>
+    <dialog id="helpDialog" aria-labelledby="modalTitle">
+      <header class="modal-head">
+        <div>
+          <div class="eyebrow" id="modalEyebrow"></div>
+          <h2 id="modalTitle"></h2>
+        </div>
+        <button class="round" id="closeDialog" aria-label="Cerrar guía">
+          <span data-icon="x"></span>
+        </button>
+      </header>
+      <div id="lessonView" class="player-grid">
+        <div class="player-main">
+          <div class="video-stage">
+            <video
+              id="player"
+              controls
+              playsinline
+              preload="metadata"
+              aria-label="Video tutorial de Caja POS"
+            ></video
+            ><span id="videoTag" class="video-tag"></span>
+            <div id="videoFallback" class="video-fallback" hidden>
+              <span data-icon="video"></span><strong>Tu tutorial, acá mismo.</strong>
+              <p id="fallbackMessage"></p>
+              <button class="secondary" id="loadCurrent">
+                <span data-icon="folder"></span> Elegir este video
+              </button>
+            </div>
+          </div>
+          <div class="video-tools">
+            <span id="sourceStatus" role="status">Video local · sin subir archivos</span
+            ><button class="text-button" id="loadAll">
+              <span data-icon="folder"></span> Elegir los 4 videos
+            </button>
+          </div>
+          <div id="removalWarning" class="warning" hidden>
+            <span data-icon="warning"></span>
+            <div>
+              <strong>Antes de quitar un artículo</strong><br />Si el artículo tiene descuento,
+              quite primero el renglón del descuento antes del artículo para que el total nunca
+              quede negativo.
+            </div>
+          </div>
+          <div class="eyebrow muted">Paso a paso</div>
+          <div class="steps-head">
+            <span class="pill amber" id="stepTime"></span>
+            <h3 id="stepTitle"></h3>
+          </div>
+          <ol id="stepList" class="steps-list"></ol>
+        </div>
+        <aside class="player-side" aria-label="Capítulos y progreso">
+          <div class="side-label">En este video</div>
+          <div class="chapter-list" id="chapterList"></div>
+          <div class="side-note">
+            <strong>Un consejo de Buho</strong><br /><span id="lessonTip"></span>
+          </div>
+          <div class="lesson-actions">
+            <button id="completeLesson" class="secondary" aria-pressed="false"></button
+            ><button id="nextLesson" class="primary"></button
+            ><small class="muted" style="font-size: 10px; text-align: center"
+              >Tu progreso se guarda en este navegador.</small
+            >
+          </div>
+        </aside>
+      </div>
+      <div id="articleView" class="article-view" hidden></div>
+    </dialog>
+    <input
+      id="allFiles"
+      class="sr-only"
+      type="file"
+      accept="video/*,.mp4"
+      multiple
+      tabindex="-1"
+      aria-label="Elegir videos de la ruta"
+    />
+    <input
+      id="singleFile"
+      class="sr-only"
+      type="file"
+      accept="video/*,.mp4"
+      tabindex="-1"
+      aria-label="Elegir video de esta guía"
+    />
+    <div class="toast" id="toast" role="status" hidden></div>
+    <script type="module" src="./assets/js/app.js"></script>
+  </body>
+</html>
